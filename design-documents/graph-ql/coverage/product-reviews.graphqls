@@ -22,7 +22,7 @@ type ProductReviews {
 type ProductReview @doc(description: "TODO") {
     product: ProductInterface! @doc(description: "Contains details about this product option")
     summary: String! @doc(description: "The review summary")
-    text: String! @doc(description: "The review text")
+    text: String! @doc(description: "The review text test")
     nickname: String! @doc(description: "The customer's nickname")
     created_at: String! @doc(description: "Date indicating when the review was created")
     average_rating: Float! @doc(description: "The average rating for product review")
