@@ -1,0 +1,41 @@
+type WishList{
+	id: ID!
+	name: String!
+	public: Boolean!
+	items: [WishlistItem]
+	items_count: Int
+	sharing_code: String
+	updated_at: String
+}
+type WishlistItem{
+	sku: String
+    quantity: Float
+    parent_sku: String,
+    selected_options: [String!]
+    entered_options: [EnteredOptionInput!]
+    added_at: String
+    comment: String
+}
+type Mutation {
+    addProductsToWishlist(input: AddProductsToWishlistInput): WishlistOutput
+    createWishlist(input: WishListInput): WishlistOutput
+    updateWishlist(input: WishListInput): WishlistOutput
+    moveItemtoWishlist(fromWishlistID: ID!, toWishlistID: ID!, WishlistItem)
+    copyItemtoWishlist(fromWishlistID: ID!, toWishlistID: ID!, WishlistItem)
+}
+
+type WishlistOutput{
+	wishlist: WishList!
+	errors" [KeyValue]
+}
+input AddProductsToWishlistInput {
+    wishlist_items: [WishlistItemInput!]!
+}
+
+input WishlistItemInput {
+    sku: String
+    quantity: Float
+    parent_sku: String,
+    selected_options: [String!]
+    entered_options: [EnteredOptionInput!]
+}
